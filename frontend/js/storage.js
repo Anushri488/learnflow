@@ -1,7 +1,6 @@
 /**
  * storage.js
- * Thin wrapper around localStorage with JSON serialisation.
- * All keys are namespaced under "lf_" to avoid collisions.
+ * localStorage + backend sync
  */
 
 const Storage = (() => {
@@ -38,11 +37,11 @@ const Storage = (() => {
   return { get, set, remove, clear };
 })();
 
-// ── Reactive state backed by localStorage ──────────────────
+// ── Reactive state backed by localStorage + backend ────────
 const State = {
-  enrolled:      Storage.get('enrolled', {}),   // { courseId: true }
-  progress:      Storage.get('progress', {}),   // { lessonId: true }
-  quizHistory:   Storage.get('quizHistory', []),// [ {courseId, lessonId, score, total, pct, date} ]
+  enrolled:      Storage.get('enrolled', {}),
+  progress:      Storage.get('progress', {}),
+  quizHistory:   Storage.get('quizHistory', []),
   xp:            Storage.get('xp', 0),
 
   save() {
@@ -50,6 +49,15 @@ const State = {
     Storage.set('progress',    this.progress);
     Storage.set('quizHistory', this.quizHistory);
     Storage.set('xp',          this.xp);
+    // Backend sync (only if logged in)
+    if (API.isLoggedIn()) {
+      API.saveProgress({
+        enrolled:    this.enrolled,
+        progress:    this.progress,
+        quizHistory: this.quizHistory,
+        xp:          this.xp
+      });
+    }
   },
 
   enroll(courseId) {
@@ -82,7 +90,6 @@ const State = {
   addXP(amount) {
     this.xp += amount;
     this.save();
-    // Dispatch event so Nav can update instantly
     window.dispatchEvent(new CustomEvent('xp-updated', { detail: this.xp }));
   },
 
@@ -91,6 +98,6 @@ const State = {
     return { done, total: course.lessons.length, pct: Math.round((done / course.lessons.length) * 100) };
   },
 
-  isEnrolled(courseId) { return !!this.enrolled[courseId]; },
-  isLessonDone(lessonId) { return !!this.progress[lessonId]; },
+  isEnrolled(courseId)  { return !!this.enrolled[courseId]; },
+  isLessonDone(lessonId){ return !!this.progress[lessonId]; },
 };

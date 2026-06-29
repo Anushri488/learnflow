@@ -54,6 +54,54 @@
 <div class="toast-container" id="toast-container"></div>
 
 <!-- ═══════════════════════════════════════
+     LOGIN / REGISTER MODAL
+═══════════════════════════════════════ -->
+<div id="auth-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;width:100%;max-width:420px;margin:20px;">
+
+    <!-- Tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:28px;">
+      <button id="tab-login" onclick="AuthModal.showLogin()" style="flex:1;padding:10px;border-radius:10px;border:none;background:var(--accent);color:#fff;font-weight:600;cursor:pointer;">Login</button>
+      <button id="tab-register" onclick="AuthModal.showRegister()" style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text2);font-weight:600;cursor:pointer;">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form">
+      <div style="margin-bottom:16px;">
+        <label style="font-size:13px;color:var(--text3);display:block;margin-bottom:6px;">Email</label>
+        <input id="login-email" type="email" placeholder="you@example.com" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text1);font-size:14px;box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:24px;">
+        <label style="font-size:13px;color:var(--text3);display:block;margin-bottom:6px;">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text1);font-size:14px;box-sizing:border-box;" />
+      </div>
+      <button onclick="AuthModal.login()" class="btn btn-primary" style="width:100%;justify-content:center;">Login →</button>
+      <div id="login-error" style="color:#ef4444;font-size:13px;margin-top:12px;text-align:center;"></div>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-form" style="display:none;">
+      <div style="margin-bottom:16px;">
+        <label style="font-size:13px;color:var(--text3);display:block;margin-bottom:6px;">Name</label>
+        <input id="reg-name" type="text" placeholder="Your name" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text1);font-size:14px;box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:13px;color:var(--text3);display:block;margin-bottom:6px;">Email</label>
+        <input id="reg-email" type="email" placeholder="you@example.com" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text1);font-size:14px;box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:24px;">
+        <label style="font-size:13px;color:var(--text3);display:block;margin-bottom:6px;">Password</label>
+        <input id="reg-password" type="password" placeholder="••••••••" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text1);font-size:14px;box-sizing:border-box;" />
+      </div>
+      <button onclick="AuthModal.register()" class="btn btn-primary" style="width:100%;justify-content:center;">Create Account →</button>
+      <div id="register-error" style="color:#ef4444;font-size:13px;margin-top:12px;text-align:center;"></div>
+    </div>
+
+    <button onclick="AuthModal.close()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;">✕</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════ -->
 <nav>
@@ -69,7 +117,9 @@
     <button class="notif-btn" id="notif-btn" aria-label="Notifications">
       🔔<div class="notif-dot" id="notif-dot"></div>
     </button>
-    <div class="avatar" title="Profile">A</div>
+    <div class="avatar" id="nav-avatar" title="Profile">A</div>
+    <button class="btn btn-primary btn-sm" id="nav-login-btn" style="font-size:13px;padding:6px 14px;">Login</button>
+    <button class="btn btn-outline btn-sm" id="nav-logout-btn" style="font-size:13px;padding:6px 14px;display:none;">Logout</button>
   </div>
 </nav>
 
@@ -378,6 +428,7 @@
 <!-- ═══════════════════════════════════════
      SCRIPTS  (order matters)
 ═══════════════════════════════════════ -->
+<script src="js/api.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/data.js"></script>
 <script src="js/ui.js"></script>
@@ -387,6 +438,82 @@
 <script src="js/dashboard.js"></script>
 <script src="js/home.js"></script>
 <script src="js/app.js"></script>
+
+<!-- Auth Modal Logic -->
+<script>
+  const AuthModal = {
+    open() {
+      const m = document.getElementById('auth-modal');
+      m.style.display = 'flex';
+    },
+    close() {
+      document.getElementById('auth-modal').style.display = 'none';
+    },
+    showLogin() {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+      document.getElementById('tab-login').style.background = 'var(--accent)';
+      document.getElementById('tab-login').style.color = '#fff';
+      document.getElementById('tab-register').style.background = 'transparent';
+      document.getElementById('tab-register').style.color = 'var(--text2)';
+    },
+    showRegister() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+      document.getElementById('tab-register').style.background = 'var(--accent)';
+      document.getElementById('tab-register').style.color = '#fff';
+      document.getElementById('tab-login').style.background = 'transparent';
+      document.getElementById('tab-login').style.color = 'var(--text2)';
+    },
+    async login() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      const err = document.getElementById('login-error');
+      err.textContent = 'Logging in...';
+      const res = await API.login(email, password);
+      if (res.error) { err.textContent = res.error; return; }
+      API.setAuth(res.token, res.user);
+      AuthModal.close();
+      AuthModal.updateNav();
+      // Load progress from backend
+      const progress = await API.loadProgress();
+      if (progress && !progress.error) {
+        State.enrolled    = progress.enrolled    || {};
+        State.progress    = progress.progress    || {};
+        State.quizHistory = progress.quizHistory || [];
+        State.xp          = progress.xp          || 0;
+      }
+      Router.go('home', document.getElementById('nav-home'));
+    },
+    async register() {
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const err = document.getElementById('register-error');
+      err.textContent = 'Creating account...';
+      const res = await API.register(name, email, password);
+      if (res.error) { err.textContent = res.error; return; }
+      API.setAuth(res.token, res.user);
+      AuthModal.close();
+      AuthModal.updateNav();
+      Router.go('home', document.getElementById('nav-home'));
+    },
+    updateNav() {
+      const loggedIn = API.isLoggedIn();
+      const user = API.getUser();
+      document.getElementById('nav-login-btn').style.display  = loggedIn ? 'none'  : 'inline-flex';
+      document.getElementById('nav-logout-btn').style.display = loggedIn ? 'inline-flex' : 'none';
+      if (loggedIn && user) {
+        document.getElementById('nav-avatar').textContent = user.name.charAt(0).toUpperCase();
+      }
+    }
+  };
+
+  // Close modal on backdrop click
+  document.getElementById('auth-modal').addEventListener('click', function(e) {
+    if (e.target === this) AuthModal.close();
+  });
+</script>
 
 <!-- Wire up hero buttons after DOM -->
 <script>
@@ -398,6 +525,19 @@
   });
   document.getElementById('nav-home-logo').addEventListener('click', () => {
     Router.go('home', document.getElementById('nav-home'));
+  });
+  document.getElementById('nav-login-btn').addEventListener('click', () => {
+    AuthModal.open();
+  });
+  document.getElementById('nav-logout-btn').addEventListener('click', () => {
+    API.logout();
+    AuthModal.updateNav();
+    Router.go('home', document.getElementById('nav-home'));
+  });
+
+  // Update nav on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    AuthModal.updateNav();
   });
 </script>
 
