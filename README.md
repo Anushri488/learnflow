@@ -156,22 +156,23 @@ JWT_SECRET=your_secret_key_here
 
 ---
 
+
 ## 📸 Screenshots
 
 ### Home Page
-> Browse featured courses and continue learning
+![Home Page](frontend/screenshots/Home%20page.png)
 
 ### Courses Page
-> Filter by category, level, and sort by popularity
+![Courses Page](frontend/screenshots/Course%20Page.png)
 
 ### Lesson View
-> Watch lessons and mark them complete
+![Lesson View](frontend/screenshots/Lesson%20View.png)
 
 ### Quiz
-> Answer questions and earn XP
+![Quiz](frontend/screenshots/Quiz.png)
 
 ### Dashboard
-> Track your progress, XP, and quiz history
+![Dashboard](frontend/screenshots/DashBoard.png)
 
 ---
 
