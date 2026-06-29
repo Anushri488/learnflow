@@ -1,109 +1,197 @@
 # ⚡ LearnFlow — E-Learning Platform
 
-A fully functional, responsive E-Learning UI built with vanilla HTML, CSS, and JavaScript.
-No frameworks. No build step. Open `index.html` and go.
+> A full-stack e-learning platform where you can browse courses, track progress, take quizzes, earn XP, and learn skills that actually matter.
+
+---
+
+## 🌐 Live Links
+
+| | Link |
+|---|---|
+| 🎯 **Live Demo (Frontend)** | [https://anushri488.github.io/learnflow](https://anushri488.github.io/learnflow) |
+| 🚀 **Backend API** | [https://learnflow-backend-do84.onrender.com](https://learnflow-backend-do84.onrender.com) |
+| 📁 **GitHub Repository** | [https://github.com/Anushri488/learnflow](https://github.com/Anushri488/learnflow) |
+
+---
+
+## ✨ Features
+
+- 🔐 **User Authentication** — Register & Login with JWT tokens
+- 📚 **Browse Courses** — Filter by category, level, and popularity
+- 📖 **Lesson Viewer** — Read lessons with a simulated video player
+- ✅ **Progress Tracking** — Mark lessons complete, track course progress
+- 🧠 **Quizzes** — Take quizzes after each lesson, get instant feedback
+- ⚡ **XP System** — Earn XP for enrolling, completing lessons, and quizzes
+- 🏆 **Dashboard** — View your stats, enrolled courses, and quiz history
+- ☁️ **Cloud Sync** — Progress saved to MongoDB (works across devices when logged in)
+- 🔔 **Notifications** — In-app notification panel
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- HTML5, CSS3, Vanilla JavaScript
+- Hosted on **GitHub Pages**
+
+### Backend
+- **Node.js** + **Express.js**
+- **JWT** for authentication
+- **bcryptjs** for password hashing
+- Hosted on **Render**
+
+### Database
+- **MongoDB Atlas** (Cloud)
+- **Mongoose** ODM
 
 ---
 
 ## 📁 Project Structure
 
 ```
-elearn/
-├── index.html              ← Main HTML shell (no inline JS/CSS)
-│
-├── css/
-│   ├── base.css            ← Design tokens, reset, nav, buttons, toasts, animations
-│   ├── components.css      ← Hero, search bar, course cards, detail page
-│   └── pages.css           ← Lesson view, quiz, dashboard
-│
-├── js/
-│   ├── storage.js          ← localStorage wrapper + reactive State object
-│   ├── data.js             ← Async JSON loader (courses, lessons, quizzes)
-│   ├── ui.js               ← Router, Toast, NotifPanel, nav XP helpers
-│   ├── courses.js          ← Course listing + detail page logic
-│   ├── lesson.js           ← Lesson view, video player, mark-complete, nav
-│   ├── quiz.js             ← Full quiz engine (select → submit → feedback → result)
-│   ├── dashboard.js        ← Dashboard render (stats, charts, history, badges)
-│   ├── home.js             ← Home page render
-│   └── app.js              ← Entry point — wires everything on DOMContentLoaded
-│
-└── data/
-    ├── courses.json        ← 6 courses with metadata
-    ├── lessons.json        ← 30 lessons with content
-    └── quizzes.json        ← 2 question banks (quiz1, quiz2), 5 questions each
+learnflow/
+├── frontend/
+│   ├── index.html          # Main HTML file
+│   ├── css/
+│   │   ├── base.css
+│   │   ├── components.css
+│   │   └── pages.css
+│   ├── js/
+│   │   ├── api.js          # Backend API calls
+│   │   ├── app.js          # App entry point
+│   │   ├── storage.js      # State + localStorage + backend sync
+│   │   ├── courses.js      # Courses page
+│   │   ├── lesson.js       # Lesson page
+│   │   ├── quiz.js         # Quiz page
+│   │   ├── dashboard.js    # Dashboard page
+│   │   ├── home.js         # Home page
+│   │   ├── data.js         # Data loader
+│   │   └── ui.js           # Shared UI helpers
+│   └── data/
+│       ├── courses.json
+│       ├── lessons.json
+│       └── quizzes.json
+├── backend/
+│   ├── server.js           # Express server entry point
+│   ├── package.json
+│   ├── .env                # Environment variables (not pushed to GitHub)
+│   ├── middleware/
+│   │   └── auth.js         # JWT auth middleware
+│   └── routes/
+│       ├── auth.js         # /api/auth/register, /api/auth/login
+│       ├── courses.js      # /api/courses
+│       └── progress.js     # /api/progress
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## ✅ Features Implemented
+## 🔌 API Endpoints
 
-### Required
-- **Course Listing** — grid with thumbnail, title, description, category, level badge, duration, students, "View Course"
-- **Search & Filters** — by title/desc/category, filter by category & level, sort by popularity/duration/level
-- **Course Detail Page** — cover, description, tags, stats, lesson list, Enroll button
-- **Lesson View** — content, simulated video player with progress, mark-as-complete, prev/next nav
-- **Quiz System** — MCQ, radio selection, submit, correct/wrong feedback with explanation, score screen
-- **Dashboard** — enrolled count, completed courses, lessons done, XP, progress bars, quiz history table
-- **LocalStorage** — enrolled courses, lesson progress, quiz history, XP — all persisted across refresh
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user, get JWT token |
+| GET | `/api/auth/me` | Get current user (protected) |
 
-### Optional (all included)
-- 🔔 **Notifications panel** — unread count, mark all read
-- 🏆 **Badge system** — Beginner (100 XP) / Achiever (500 XP) / Expert (1000 XP)
-- 🥇 **Achievements grid** — 6 unlockable achievements based on activity
-- ⚡ **XP system** — enroll +50 XP, lesson complete +30 XP, quiz score × 0.5 XP
-- 📊 **Data visualisation** — category bar chart + level pie breakdown in dashboard
-- 🎨 **Animations** — fade-up card entrance, slide-down notification, toast slide-in, hover effects
-- 📱 **Fully responsive** — desktop (3-col), tablet (2-col), mobile (1-col)
-- 🎬 **Simulated video player** — progress bar auto-fills on play
+### Courses
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/courses/courses` | Get all courses |
+| GET | `/api/courses/lessons` | Get all lessons |
+| GET | `/api/courses/quizzes` | Get all quizzes |
+
+### Progress
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/progress` | Get user progress (protected) |
+| POST | `/api/progress` | Save user progress (protected) |
 
 ---
 
-## 🚀 How to Run
+## 🚀 Run Locally
 
-### Option 1 — Live Server (recommended)
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account
+
+### Backend Setup
 ```bash
-cd elearn
-npx live-server
-# or use VS Code → "Go Live"
+# Clone the repo
+git clone https://github.com/Anushri488/learnflow.git
+cd learnflow/backend
+
+# Install dependencies
+npm install
+
+# Create .env file
+cp .env.example .env
+# Add your MONGO_URI and JWT_SECRET in .env
+
+# Start server
+npm run dev
 ```
 
-### Option 2 — Python server
+### Frontend Setup
 ```bash
-cd elearn
-python -m http.server 8080
-# open http://localhost:8080
+# Just open in browser
+cd learnflow/frontend
+# Open index.html in your browser
+# OR use Live Server extension in VS Code
 ```
-
-> ⚠️ **Do NOT open `index.html` directly** via `file://` — the `fetch()` calls for JSON data require a local HTTP server.
 
 ---
 
-## 🛠️ Tech Stack
+## ⚙️ Environment Variables
 
-| Layer    | Choice              | Why                          |
-|----------|---------------------|------------------------------|
-| HTML     | Semantic HTML5      | Clean structure, accessible  |
-| CSS      | Vanilla CSS + vars  | No build step, design tokens |
-| JS       | Vanilla ES6+        | Modules via IIFE pattern     |
-| Data     | JSON files          | Simulates a real API         |
-| Storage  | localStorage        | Zero backend needed          |
-| Fonts    | Google Fonts        | Space Grotesk + Inter + JetBrains Mono |
+Create a `.env` file in the `backend/` folder:
+
+```
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/learnflow
+JWT_SECRET=your_secret_key_here
+```
 
 ---
 
-## 📐 Architecture
+## 📸 Screenshots
 
-All JavaScript follows the **IIFE module pattern** — each file exposes one object:
+### Home Page
+> Browse featured courses and continue learning
 
-```
-Storage  →  thin localStorage wrapper
-State    →  reactive app state backed by Storage
-Data     →  async loader for JSON files
-Router   →  page switcher with registered callbacks
-Toast    →  show(type, message) utility
-NotifPanel → notification dropdown
-CoursesPage / DetailPage / LessonPage / QuizPage / Dashboard / HomePage
-app.js   →  wires event listeners, boots the app
-```
+### Courses Page
+> Filter by category, level, and sort by popularity
 
-No global variables pollute the namespace except the exported module objects.
+### Lesson View
+> Watch lessons and mark them complete
+
+### Quiz
+> Answer questions and earn XP
+
+### Dashboard
+> Track your progress, XP, and quiz history
+
+---
+
+## 🔮 Future Plans
+
+- [ ] Google OAuth login
+- [ ] Certificate generation on course completion
+- [ ] Admin panel to add/edit courses
+- [ ] Real video embedding (YouTube)
+- [ ] Dark/Light theme toggle
+- [ ] Mobile app (React Native)
+
+---
+
+## 👩‍💻 Made by
+
+**Anushri** — [GitHub](https://github.com/Anushri488)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
