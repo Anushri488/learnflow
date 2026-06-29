@@ -3,8 +3,8 @@
  * Backend se baat karne ke liye helper functions
  */
 
-const API_URL = 'http://localhost:5000/api';
-// Baad mein Render ka URL dalenge
+const API_URL = 'https://learnflow-backend-do84.onrender.com/api';
+
 
 const API = {
   // Auth
