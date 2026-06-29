@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "JavaScript Fundamentals",
+    "category": "Programming",
+    "level": "Beginner",
+    "description": "Master the core concepts of JavaScript — variables, functions, DOM, async/await — with hands-on examples.",
+    "tags": ["JS", "Web Dev", "ES6"],
+    "thumb": "🚀",
+    "students": "12.4k",
+    "duration": "6 hrs",
+    "lessons": [101, 102, 103, 104, 105, 106],
+    "color": "#6366f1"
+  },
+  {
+    "id": 2,
+    "title": "CSS Grid & Flexbox Mastery",
+    "category": "Design",
+    "level": "Intermediate",
+    "description": "Build modern, responsive layouts using CSS Grid and Flexbox. Stop fighting layouts — start owning them.",
+    "tags": ["CSS", "Layout", "Responsive"],
+    "thumb": "🎨",
+    "students": "8.2k",
+    "duration": "4 hrs",
+    "lessons": [201, 202, 203, 204],
+    "color": "#22d3ee"
+  },
+  {
+    "id": 3,
+    "title": "Python for Data Science",
+    "category": "Data Science",
+    "level": "Intermediate",
+    "description": "Learn Python, Pandas, Matplotlib and core ML concepts to start analyzing real datasets.",
+    "tags": ["Python", "Pandas", "ML"],
+    "thumb": "🐍",
+    "students": "15.1k",
+    "duration": "8 hrs",
+    "lessons": [301, 302, 303, 304, 305],
+    "color": "#10b981"
+  },
+  {
+    "id": 4,
+    "title": "React from Scratch",
+    "category": "Programming",
+    "level": "Advanced",
+    "description": "Build production-ready React applications with hooks, context, routing and state management.",
+    "tags": ["React", "Hooks", "Redux"],
+    "thumb": "⚛️",
+    "students": "9.7k",
+    "duration": "10 hrs",
+    "lessons": [401, 402, 403, 404, 405, 406],
+    "color": "#f59e0b"
+  },
+  {
+    "id": 5,
+    "title": "Docker & Kubernetes Basics",
+    "category": "DevOps",
+    "level": "Intermediate",
+    "description": "Containerize and orchestrate applications using Docker and Kubernetes in real workflows.",
+    "tags": ["Docker", "K8s", "DevOps"],
+    "thumb": "🐳",
+    "students": "5.8k",
+    "duration": "7 hrs",
+    "lessons": [501, 502, 503, 504],
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 6,
+    "title": "UI/UX Design Principles",
+    "category": "Design",
+    "level": "Beginner",
+    "description": "Understand user-centered design, wireframing, prototyping, and the psychology behind great interfaces.",
+    "tags": ["Design", "Figma", "UX"],
+    "thumb": "✏️",
+    "students": "7.3k",
+    "duration": "5 hrs",
+    "lessons": [601, 602, 603, 604, 605],
+    "color": "#ec4899"
+  }
+]

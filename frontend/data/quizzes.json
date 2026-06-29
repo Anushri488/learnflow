@@ -1,0 +1,602 @@
+{
+  "js_q1": [
+    {
+      "question": "Which keyword creates a block-scoped variable that can be reassigned?",
+      "options": ["var", "let", "const", "static"],
+      "answer": 1,
+      "explanation": "let is block-scoped and can be reassigned. const is also block-scoped but immutable. var is function-scoped and should be avoided in modern JS."
+    },
+    {
+      "question": "What will `typeof null` return in JavaScript?",
+      "options": ["null", "undefined", "object", "boolean"],
+      "answer": 2,
+      "explanation": "typeof null returns 'object' — this is a well-known bug in JavaScript that was never fixed for backward compatibility."
+    },
+    {
+      "question": "Which of the following is NOT a primitive data type in JavaScript?",
+      "options": ["String", "Number", "Array", "Boolean"],
+      "answer": 2,
+      "explanation": "Array is an object (non-primitive) in JavaScript. Primitives are: String, Number, Boolean, Undefined, Null, Symbol, and BigInt."
+    },
+    {
+      "question": "What does `const x = 5; x = 10;` throw?",
+      "options": ["SyntaxError", "TypeError", "ReferenceError", "Nothing, x becomes 10"],
+      "answer": 1,
+      "explanation": "Reassigning a const variable throws a TypeError at runtime because const bindings are read-only after initialisation."
+    },
+    {
+      "question": "What is the output of `console.log(0.1 + 0.2 === 0.3)`?",
+      "options": ["true", "false", "NaN", "undefined"],
+      "answer": 1,
+      "explanation": "Due to floating-point precision in IEEE 754, 0.1 + 0.2 = 0.30000000000000004, so the strict equality check returns false."
+    }
+  ],
+
+  "js_q2": [
+    {
+      "question": "What is the difference between arrow functions and regular functions?",
+      "options": [
+        "Arrow functions are faster",
+        "Arrow functions don't bind their own `this`",
+        "Arrow functions can be used as constructors",
+        "Arrow functions require a return statement"
+      ],
+      "answer": 1,
+      "explanation": "Arrow functions inherit `this` from the surrounding (lexical) scope. Regular functions bind their own `this` depending on how they're called."
+    },
+    {
+      "question": "What does closure mean in JavaScript?",
+      "options": [
+        "A function that closes the browser tab",
+        "A function that has access to variables from its outer scope even after that scope has finished",
+        "A way to close event listeners",
+        "An IIFE (Immediately Invoked Function Expression)"
+      ],
+      "answer": 1,
+      "explanation": "A closure is a function that 'closes over' variables from its outer lexical scope, preserving access to them even after the outer function has returned."
+    },
+    {
+      "question": "What is the output of `console.log(typeof function(){})`?",
+      "options": ["object", "function", "undefined", "callable"],
+      "answer": 1,
+      "explanation": "typeof returns 'function' for function objects. Even though functions are objects internally, typeof gives them a special 'function' string."
+    },
+    {
+      "question": "Which method removes the last element from an array and returns it?",
+      "options": ["shift()", "unshift()", "pop()", "splice()"],
+      "answer": 2,
+      "explanation": "pop() removes and returns the last element. shift() removes the first. push() adds to the end, unshift() adds to the beginning."
+    },
+    {
+      "question": "What does the `...` spread operator do when used with an array?",
+      "options": [
+        "Creates a deep clone",
+        "Expands the array elements into individual values",
+        "Converts the array to a string",
+        "Reverses the array"
+      ],
+      "answer": 1,
+      "explanation": "The spread operator expands an iterable into individual elements. `[...arr]` creates a shallow copy; `Math.max(...arr)` passes elements as arguments."
+    }
+  ],
+
+  "css_q1": [
+    {
+      "question": "Which CSS property makes an element a flex container?",
+      "options": ["flex: 1", "display: flex", "position: flex", "flex-wrap: wrap"],
+      "answer": 1,
+      "explanation": "display: flex turns an element into a flex container, making all its direct children flex items."
+    },
+    {
+      "question": "What does `justify-content: space-between` do in Flexbox?",
+      "options": [
+        "Centers items horizontally",
+        "Places equal space between items, with no space at edges",
+        "Places equal space around all items",
+        "Stretches items to fill the container"
+      ],
+      "answer": 1,
+      "explanation": "space-between distributes items so the first is at the start edge, last at the end edge, and remaining space is divided equally between them."
+    },
+    {
+      "question": "Which property controls how flex items wrap when they overflow?",
+      "options": ["flex-direction", "flex-wrap", "flex-flow", "align-content"],
+      "answer": 1,
+      "explanation": "flex-wrap controls wrapping: nowrap (default) keeps items on one line, wrap moves overflow to the next line, wrap-reverse wraps in reverse."
+    },
+    {
+      "question": "What is the default value of `align-items` in a flex container?",
+      "options": ["flex-start", "flex-end", "center", "stretch"],
+      "answer": 3,
+      "explanation": "align-items defaults to stretch, making flex items fill the cross-axis height of the container unless they have a fixed height."
+    },
+    {
+      "question": "Which shorthand property combines flex-direction and flex-wrap?",
+      "options": ["flex", "flex-flow", "flex-basis", "flex-grow"],
+      "answer": 1,
+      "explanation": "flex-flow is shorthand for flex-direction and flex-wrap. Example: flex-flow: row wrap; is equivalent to setting both properties separately."
+    }
+  ],
+
+  "css_q2": [
+    {
+      "question": "What does the `fr` unit represent in CSS Grid?",
+      "options": [
+        "Fixed row height",
+        "A fraction of the available free space",
+        "Font-relative size",
+        "Frame rate unit"
+      ],
+      "answer": 1,
+      "explanation": "fr is a fractional unit that distributes the remaining free space in the grid. 1fr 2fr means the second column gets twice as much space as the first."
+    },
+    {
+      "question": "Which property defines named grid areas?",
+      "options": ["grid-template-columns", "grid-template-areas", "grid-area", "grid-template"],
+      "answer": 1,
+      "explanation": "grid-template-areas lets you name regions of your grid using strings. Items then use grid-area to place themselves into named regions."
+    },
+    {
+      "question": "What does `grid-column: 1 / 3` mean?",
+      "options": [
+        "The item is 3 columns wide",
+        "The item spans from column line 1 to column line 3",
+        "The item is in the first of 3 columns",
+        "The item starts at column 3"
+      ],
+      "answer": 1,
+      "explanation": "1 / 3 uses grid line numbers: start at line 1, end at line 3. This spans 2 column tracks. You can also use `span 2` for the same result."
+    },
+    {
+      "question": "Which media query applies styles for screens wider than 768px?",
+      "options": [
+        "@media (max-width: 768px)",
+        "@media (min-width: 768px)",
+        "@media (width: 768px)",
+        "@media screen(768px)"
+      ],
+      "answer": 1,
+      "explanation": "min-width: 768px applies styles when the viewport is at least 768px wide — the mobile-first breakpoint pattern."
+    },
+    {
+      "question": "What is the `gap` property used for in Grid?",
+      "options": [
+        "Adds padding inside grid items",
+        "Sets the spacing between rows and columns",
+        "Creates a border between grid areas",
+        "Defines the grid container margin"
+      ],
+      "answer": 1,
+      "explanation": "gap (formerly grid-gap) sets the gutter between grid tracks. You can set row and column gaps separately with row-gap and column-gap."
+    }
+  ],
+
+  "python_q1": [
+    {
+      "question": "What is a list comprehension in Python?",
+      "options": [
+        "A way to import lists from other modules",
+        "A concise way to create lists using a for loop inside brackets",
+        "A method that comprehends list length",
+        "A type of list that auto-sorts"
+      ],
+      "answer": 1,
+      "explanation": "[x*2 for x in range(5)] is a list comprehension — it creates [0,2,4,6,8]. It's more concise and often faster than a traditional for loop."
+    },
+    {
+      "question": "What does `pd.read_csv('data.csv')` return?",
+      "options": ["A Python list", "A dictionary", "A Pandas DataFrame", "A NumPy array"],
+      "answer": 2,
+      "explanation": "pd.read_csv() parses a CSV file and returns a DataFrame — a 2D labelled data structure with typed columns, the core of Pandas data manipulation."
+    },
+    {
+      "question": "Which Pandas method shows the first 5 rows of a DataFrame?",
+      "options": ["df.top()", "df.head()", "df.first()", "df.peek()"],
+      "answer": 1,
+      "explanation": "df.head(n) returns the first n rows (default 5). df.tail(n) returns the last n rows. Both are essential for quickly inspecting data."
+    },
+    {
+      "question": "What does `df['column'].value_counts()` do?",
+      "options": [
+        "Counts the number of columns",
+        "Returns the count of each unique value in a column",
+        "Sorts the column values",
+        "Removes duplicate values"
+      ],
+      "answer": 1,
+      "explanation": "value_counts() returns a Series with unique values as index and their frequency as values, sorted by count descending. Ideal for categorical analysis."
+    },
+    {
+      "question": "Which Python library is primarily used for data visualisation?",
+      "options": ["NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
+      "answer": 2,
+      "explanation": "Matplotlib is the foundational plotting library in Python. Seaborn builds on top of it for statistical plots. Pandas uses Matplotlib under the hood for df.plot()."
+    }
+  ],
+
+  "python_q2": [
+    {
+      "question": "What is the shape attribute in NumPy used for?",
+      "options": [
+        "Returns the data type of an array",
+        "Returns a tuple representing the dimensions of an array",
+        "Reshapes the array automatically",
+        "Returns the number of elements"
+      ],
+      "answer": 1,
+      "explanation": "array.shape returns a tuple like (rows, cols) for 2D arrays. It tells you the size along each dimension, essential for debugging array operations."
+    },
+    {
+      "question": "Which Scikit-learn method is used to train a model?",
+      "options": ["model.train()", "model.fit()", "model.learn()", "model.run()"],
+      "answer": 1,
+      "explanation": "model.fit(X, y) trains the model on features X and target y. After fitting, model.predict(X_test) makes predictions on new data."
+    },
+    {
+      "question": "What does `df.groupby('category').mean()` do?",
+      "options": [
+        "Filters rows where category equals mean",
+        "Groups rows by category and computes the mean of each numeric column",
+        "Sorts the DataFrame by category",
+        "Removes categories with below-average values"
+      ],
+      "answer": 1,
+      "explanation": "groupby() splits the DataFrame into groups, then .mean() applies aggregation to each group. This is the split-apply-combine pattern central to data analysis."
+    },
+    {
+      "question": "What is broadcasting in NumPy?",
+      "options": [
+        "Sending arrays over a network",
+        "A mechanism that allows operations on arrays of different shapes",
+        "Printing array values to the console",
+        "Converting 1D arrays to 2D"
+      ],
+      "answer": 1,
+      "explanation": "Broadcasting lets NumPy perform element-wise operations on arrays of different shapes by virtually expanding the smaller array. E.g., adding a scalar to an array."
+    },
+    {
+      "question": "What is overfitting in machine learning?",
+      "options": [
+        "When a model trains too slowly",
+        "When a model performs well on training data but poorly on unseen data",
+        "When a model has too few parameters",
+        "When training data has too many features"
+      ],
+      "answer": 1,
+      "explanation": "Overfitting occurs when a model memorises training data instead of learning general patterns. It shows high training accuracy but poor test/validation accuracy."
+    }
+  ],
+
+  "react_q1": [
+    {
+      "question": "What is JSX in React?",
+      "options": [
+        "A JavaScript XML database format",
+        "A syntax extension that lets you write HTML-like code in JavaScript",
+        "A new JavaScript version",
+        "A state management library"
+      ],
+      "answer": 1,
+      "explanation": "JSX is syntactic sugar that looks like HTML inside JavaScript. Babel compiles it to React.createElement() calls. It makes component structure much more readable."
+    },
+    {
+      "question": "What does the useState hook return?",
+      "options": [
+        "Only the current state value",
+        "An array with the current state value and a function to update it",
+        "A promise that resolves to the state",
+        "An object with get and set methods"
+      ],
+      "answer": 1,
+      "explanation": "useState returns [value, setter]. const [count, setCount] = useState(0) gives you the state and a function to update it, which triggers a re-render."
+    },
+    {
+      "question": "When does useEffect run by default (no dependency array)?",
+      "options": [
+        "Only once when the component mounts",
+        "After every render",
+        "Only when state changes",
+        "Never automatically"
+      ],
+      "answer": 1,
+      "explanation": "Without a dependency array, useEffect runs after every render. An empty array [] runs it only on mount. A filled array runs it when those values change."
+    },
+    {
+      "question": "What are React props?",
+      "options": [
+        "Internal component state",
+        "Read-only data passed from parent to child components",
+        "CSS properties applied to JSX",
+        "Methods defined inside a component"
+      ],
+      "answer": 1,
+      "explanation": "Props (properties) are how parent components pass data to children. They're read-only inside the child — to change them, you lift state up to the parent."
+    },
+    {
+      "question": "What does the `key` prop do in a React list?",
+      "options": [
+        "Styles each list item differently",
+        "Helps React identify which items changed, added, or removed",
+        "Sorts the list items automatically",
+        "Adds an ID attribute to the DOM element"
+      ],
+      "answer": 1,
+      "explanation": "Keys help React's reconciliation algorithm efficiently update the DOM. Without stable keys, React may re-render items unnecessarily or lose component state."
+    }
+  ],
+
+  "react_q2": [
+    {
+      "question": "What problem does React Context solve?",
+      "options": [
+        "Slow rendering performance",
+        "Prop drilling — passing props through many intermediate components",
+        "Managing server-side state",
+        "Styling components globally"
+      ],
+      "answer": 1,
+      "explanation": "Context lets you pass data through the component tree without manually passing props at every level. It's ideal for themes, auth state, or language preferences."
+    },
+    {
+      "question": "What does React.memo do?",
+      "options": [
+        "Adds a comment to a component",
+        "Prevents a component from re-rendering if its props haven't changed",
+        "Memoises the component's state",
+        "Caches API responses"
+      ],
+      "answer": 1,
+      "explanation": "React.memo is a higher-order component that skips re-rendering if props are shallowly equal to the previous render, improving performance for pure components."
+    },
+    {
+      "question": "What is the purpose of useCallback?",
+      "options": [
+        "It calls a function after a delay",
+        "It memoises a function so the same reference is returned unless dependencies change",
+        "It replaces useEffect for async operations",
+        "It binds a function to the component's context"
+      ],
+      "answer": 1,
+      "explanation": "useCallback returns a memoised function. This prevents unnecessary re-renders of child components that receive the function as a prop, since the reference stays stable."
+    },
+    {
+      "question": "What is React Router used for?",
+      "options": [
+        "Routing API requests to the backend",
+        "Enabling client-side navigation between pages without full page reloads",
+        "Managing component render order",
+        "Creating nested components"
+      ],
+      "answer": 1,
+      "explanation": "React Router provides declarative routing for React apps. Components like <Route>, <Link>, and <Navigate> enable SPA navigation while the URL updates normally."
+    },
+    {
+      "question": "What hook reads URL parameters in React Router?",
+      "options": ["useLocation", "useHistory", "useParams", "useRoute"],
+      "answer": 2,
+      "explanation": "useParams() returns an object of key-value pairs from the URL. If your route is /course/:id, then useParams().id gives you the course ID from the URL."
+    }
+  ],
+
+  "devops_q1": [
+    {
+      "question": "What is a Docker container?",
+      "options": [
+        "A virtual machine with its own OS kernel",
+        "A lightweight, isolated environment that packages code and its dependencies",
+        "A cloud hosting service",
+        "A type of database"
+      ],
+      "answer": 1,
+      "explanation": "Containers share the host OS kernel but are isolated at the process level. They're faster and lighter than VMs, and guarantee consistent behaviour across environments."
+    },
+    {
+      "question": "What does a Dockerfile define?",
+      "options": [
+        "The network configuration for a container",
+        "Step-by-step instructions to build a Docker image",
+        "The runtime environment variables",
+        "The container's memory limits"
+      ],
+      "answer": 1,
+      "explanation": "A Dockerfile is a text file with instructions like FROM, RUN, COPY, CMD that Docker executes in order to build a reproducible image layer by layer."
+    },
+    {
+      "question": "What is the difference between `docker build` and `docker run`?",
+      "options": [
+        "They are the same command",
+        "build creates an image from a Dockerfile; run starts a container from an image",
+        "build starts a container; run creates an image",
+        "build is for development; run is for production only"
+      ],
+      "answer": 1,
+      "explanation": "docker build reads the Dockerfile and produces an immutable image. docker run takes that image and starts a live container instance from it."
+    },
+    {
+      "question": "What does Docker Compose allow you to do?",
+      "options": [
+        "Compose music using Docker",
+        "Define and run multi-container applications with a single YAML file",
+        "Build Docker images faster",
+        "Monitor running containers"
+      ],
+      "answer": 1,
+      "explanation": "docker-compose.yml defines all services (app, db, cache) and their configuration. `docker-compose up` starts the entire stack, `down` tears it down."
+    },
+    {
+      "question": "What is a Docker volume used for?",
+      "options": [
+        "Controlling container CPU usage",
+        "Persisting data beyond the container lifecycle",
+        "Scaling containers horizontally",
+        "Encrypting container communication"
+      ],
+      "answer": 1,
+      "explanation": "Volumes persist data outside the container filesystem. Without a volume, any data written inside a container is lost when the container is removed."
+    }
+  ],
+
+  "devops_q2": [
+    {
+      "question": "What is a Kubernetes Pod?",
+      "options": [
+        "A virtual machine in a cluster",
+        "The smallest deployable unit, which can contain one or more containers",
+        "A group of worker nodes",
+        "A Kubernetes configuration file"
+      ],
+      "answer": 1,
+      "explanation": "A Pod is the atomic unit in Kubernetes. Containers in the same Pod share network and storage, and are always scheduled together on the same node."
+    },
+    {
+      "question": "What does a Kubernetes Deployment do?",
+      "options": [
+        "Deploys code to GitHub",
+        "Manages a ReplicaSet to ensure a desired number of Pod replicas are always running",
+        "Configures network routing between services",
+        "Stores environment variables for Pods"
+      ],
+      "answer": 1,
+      "explanation": "A Deployment declaratively manages Pod replicas. If a Pod crashes, the Deployment controller automatically creates a replacement to match the desired state."
+    },
+    {
+      "question": "What is a Kubernetes Service?",
+      "options": [
+        "A background process running in a Pod",
+        "An abstraction that provides stable network access to a set of Pods",
+        "A type of storage volume",
+        "A health check configuration"
+      ],
+      "answer": 1,
+      "explanation": "Pods have dynamic IPs that change on restart. A Service provides a stable IP and DNS name, load-balancing traffic across matching Pods using label selectors."
+    },
+    {
+      "question": "Which kubectl command shows running Pods?",
+      "options": ["kubectl list pods", "kubectl get pods", "kubectl show pods", "kubectl status pods"],
+      "answer": 1,
+      "explanation": "kubectl get pods lists all Pods in the current namespace with their status. Add -A for all namespaces or -o wide for extra details like node assignment."
+    },
+    {
+      "question": "What does `kubectl apply -f deployment.yaml` do?",
+      "options": [
+        "Deletes the resources defined in the file",
+        "Creates or updates Kubernetes resources defined in the YAML file",
+        "Validates the YAML syntax only",
+        "Restarts all Pods in the cluster"
+      ],
+      "answer": 1,
+      "explanation": "kubectl apply is declarative — it creates the resource if it doesn't exist, or updates it if it does, based on the desired state described in the YAML."
+    }
+  ],
+
+  "design_q1": [
+    {
+      "question": "What does the 'C' in the PARC design principles stand for?",
+      "options": ["Colour", "Contrast", "Clarity", "Creativity"],
+      "answer": 1,
+      "explanation": "PARC stands for Proximity, Alignment, Repetition, and Contrast. Contrast makes elements stand out and creates visual hierarchy by varying size, colour, or weight."
+    },
+    {
+      "question": "What is the 60-30-10 rule in colour design?",
+      "options": [
+        "60% text, 30% images, 10% whitespace",
+        "60% dominant colour, 30% secondary colour, 10% accent colour",
+        "60% warm colours, 30% cool colours, 10% neutrals",
+        "60px font size, 30px subheading, 10px body"
+      ],
+      "answer": 1,
+      "explanation": "The 60-30-10 rule creates balanced colour palettes: 60% dominant (usually neutral), 30% secondary, 10% accent. It prevents visual chaos while maintaining interest."
+    },
+    {
+      "question": "What is colour contrast ratio used for in UI design?",
+      "options": [
+        "Making designs look vibrant",
+        "Ensuring text is readable for users with visual impairments (accessibility)",
+        "Matching brand colours",
+        "Creating gradient effects"
+      ],
+      "answer": 1,
+      "explanation": "WCAG requires a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text. Good contrast ensures readability for all users, including those with low vision."
+    },
+    {
+      "question": "What is the purpose of whitespace (negative space) in design?",
+      "options": [
+        "It reduces development time",
+        "It improves readability, reduces cognitive load, and creates visual breathing room",
+        "It makes designs look unfinished",
+        "It's only used in print design"
+      ],
+      "answer": 1,
+      "explanation": "Whitespace isn't wasted space — it groups related elements (proximity), separates unrelated ones, and gives the eye a rest. It's a powerful tool for creating focus."
+    },
+    {
+      "question": "What is a typographic scale?",
+      "options": [
+        "A tool for measuring font file size",
+        "A set of harmonious font sizes following a consistent ratio",
+        "The weight range of a font family",
+        "A scale that converts px to rem"
+      ],
+      "answer": 1,
+      "explanation": "A typographic scale (e.g., Major Third: 1.25 ratio) produces sizes like 12, 15, 19, 24, 30px that feel harmonious. It creates consistent hierarchy across an interface."
+    }
+  ],
+
+  "design_q2": [
+    {
+      "question": "What is the difference between low-fidelity and high-fidelity wireframes?",
+      "options": [
+        "Lo-fi is digital; hi-fi is paper-based",
+        "Lo-fi is rough and fast for exploring layout; hi-fi includes detail and real content",
+        "Lo-fi is for mobile; hi-fi is for desktop",
+        "There is no practical difference"
+      ],
+      "answer": 1,
+      "explanation": "Lo-fi wireframes (sketches, greyscale boxes) focus on structure without visual distraction. Hi-fi wireframes include real copy, spacing, and component detail for developer handoff."
+    },
+    {
+      "question": "What is a user flow in UX design?",
+      "options": [
+        "How quickly a user scrolls through a page",
+        "The path a user takes to complete a specific task within a product",
+        "The animation transitions between screens",
+        "The number of users visiting a page"
+      ],
+      "answer": 1,
+      "explanation": "A user flow maps every step from entry point to goal completion. Designing flows before visual design ensures the experience is logical before aesthetics are applied."
+    },
+    {
+      "question": "What is the purpose of a prototype in UX design?",
+      "options": [
+        "To write the final production code",
+        "To simulate interactions and test usability before development begins",
+        "To create the final colour palette",
+        "To document the codebase"
+      ],
+      "answer": 1,
+      "explanation": "Prototypes simulate real interactions to test whether designs work for users. Catching usability issues in a Figma prototype is far cheaper than fixing them in production code."
+    },
+    {
+      "question": "What does 'affordance' mean in UX design?",
+      "options": [
+        "The cost of a design tool",
+        "A visual or physical cue that suggests how an object should be used",
+        "The time it takes users to learn an interface",
+        "The number of features a product offers"
+      ],
+      "answer": 1,
+      "explanation": "Affordances guide users intuitively — a button looks clickable, a slider looks draggable. Good affordances reduce the need for instructions and lower cognitive load."
+    },
+    {
+      "question": "What is Fitts's Law in UI design?",
+      "options": [
+        "Larger fonts improve readability",
+        "The time to reach a target depends on the distance to it and its size",
+        "UI elements should fit within the viewport",
+        "Colour contrast improves click-through rates"
+      ],
+      "answer": 1,
+      "explanation": "Fitts's Law: T = a + b log2(D/W + 1). Closer and larger targets are faster to click. This is why CTAs are large, bottom nav icons are big, and menus appear near the cursor."
+    }
+  ]
+}

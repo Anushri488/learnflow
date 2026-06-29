@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnFlow — E-Learning Platform</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NOTIFICATION PANEL
+═══════════════════════════════════════ -->
+<div class="notif-panel" id="notif-panel">
+  <div class="notif-head">
+    <span class="notif-head-title">Notifications</span>
+    <span class="notif-mark" id="notif-mark-read">Mark all read</span>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon" style="background:rgba(99,102,241,0.15)">🎯</div>
+    <div>
+      <div class="notif-body"><strong>Quiz completed!</strong> You scored 80% on JavaScript Basics.</div>
+      <div class="notif-time">2 minutes ago</div>
+    </div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon" style="background:rgba(16,185,129,0.15)">🏆</div>
+    <div>
+      <div class="notif-body">New badge earned: <strong>Achiever</strong></div>
+      <div class="notif-time">1 hour ago</div>
+    </div>
+  </div>
+  <div class="notif-item">
+    <div class="notif-icon" style="background:rgba(245,158,11,0.15)">📚</div>
+    <div>
+      <div class="notif-body"><strong>New lesson added</strong> to CSS Grid Mastery.</div>
+      <div class="notif-time">Yesterday</div>
+    </div>
+  </div>
+  <div class="notif-item">
+    <div class="notif-icon" style="background:rgba(239,68,68,0.15)">🔥</div>
+    <div>
+      <div class="notif-body">You're on a <strong>3-day streak</strong>! Keep it up.</div>
+      <div class="notif-time">2 days ago</div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo" id="nav-home-logo">⚡ LearnFlow</div>
+  <div class="nav-links">
+    <button class="nav-link" id="nav-home">Home</button>
+    <button class="nav-link" id="nav-courses">Courses</button>
+    <button class="nav-link" id="nav-dashboard">Dashboard</button>
+  </div>
+  <div class="nav-right">
+    <span class="level-label" id="nav-level">Lv.1</span>
+    <div class="badge-xp" id="nav-xp">⚡ 0 XP</div>
+    <button class="notif-btn" id="notif-btn" aria-label="Notifications">
+      🔔<div class="notif-dot" id="notif-dot"></div>
+    </button>
+    <div class="avatar" title="Profile">A</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════ -->
+<div class="page" id="page-home">
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">✦ 120+ Courses Available</div>
+        <h1 class="hero-title">Learn skills that<br><span>actually matter</span><br>in 2025</h1>
+        <p class="hero-sub">
+          Browse courses, track your progress, take quizzes, and build real
+          projects — all in one focused platform designed for serious learners.
+        </p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" id="hero-browse-btn">Browse Courses →</button>
+          <button class="btn btn-outline" id="hero-dash-btn">My Dashboard</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Courses</div></div>
+          <div class="stat-item"><div class="stat-num">48k</div><div class="stat-label">Learners</div></div>
+          <div class="stat-item"><div class="stat-num">92%</div><div class="stat-label">Completion rate</div></div>
+        </div>
+      </div>
+
+      <!-- Right decorative card -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hc-row">
+            <div class="hc-icon" style="background:rgba(99,102,241,0.15)">🚀</div>
+            <div>
+              <div style="font-weight:600;font-size:14px">JavaScript Fundamentals</div>
+              <div class="hc-meta">Programming · 6 Lessons</div>
+            </div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Progress</span><span>75%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+          </div>
+          <div style="height:1px;background:var(--border);margin:20px 0"></div>
+          <div class="hc-row">
+            <div class="hc-icon" style="background:rgba(34,211,238,0.15)">🎨</div>
+            <div>
+              <div style="font-weight:600;font-size:14px">CSS Grid Mastery</div>
+              <div class="hc-meta">Design · 4 Lessons</div>
+            </div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Progress</span><span>40%</span></div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:40%;background:linear-gradient(90deg,#22d3ee,#6366f1)"></div>
+            </div>
+          </div>
+          <div style="height:1px;background:var(--border);margin:20px 0"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:13px;color:var(--text3)">Daily streak 🔥</span>
+            <div style="display:flex;gap:6px">
+              <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">3</div>
+              <div style="width:28px;height:28px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text3)">+</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-mini-stats">
+          <div class="mini-stat"><div class="mini-stat-num" style="color:var(--success)">4</div><div class="mini-stat-label">Enrolled</div></div>
+          <div class="mini-stat"><div class="mini-stat-num" style="color:var(--accent)">1</div><div class="mini-stat-label">Completed</div></div>
+          <div class="mini-stat"><div class="mini-stat-num" style="color:var(--accent3)">82%</div><div class="mini-stat-label">Avg. Score</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continue learning -->
+    <div class="section-wrap" style="padding-top:0">
+      <div class="section-head">
+        <div class="section-title">Continue <span>Learning</span></div>
+      </div>
+      <div id="continue-courses"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: COURSES
+═══════════════════════════════════════ -->
+<div class="page" id="page-courses">
+  <div class="container section-wrap" style="padding-top:32px">
+    <div class="section-head">
+      <div class="section-title">Browse <span>Courses</span></div>
+      <span id="course-count" style="font-size:13px;color:var(--text3)"></span>
+    </div>
+
+    <!-- Search + filters -->
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search courses…" />
+      </div>
+      <select class="filter-select" id="filter-category">
+        <option value="">All Categories</option>
+        <option value="Programming">Programming</option>
+        <option value="Design">Design</option>
+        <option value="Data Science">Data Science</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Business">Business</option>
+      </select>
+      <select class="filter-select" id="filter-level">
+        <option value="">All Levels</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+      <select class="filter-select" id="filter-sort">
+        <option value="popular">Most Popular</option>
+        <option value="duration">By Duration</option>
+        <option value="level">By Level</option>
+      </select>
+    </div>
+
+    <div class="course-grid" id="course-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: COURSE DETAIL
+═══════════════════════════════════════ -->
+<div class="page" id="page-detail">
+  <div class="detail-hero">
+    <div class="detail-inner">
+      <div>
+        <div class="detail-breadcrumb" id="detail-back">
+          ← Courses / <span id="detail-category"></span>
+        </div>
+        <h2 class="detail-title" id="detail-title"></h2>
+        <p class="detail-desc" id="detail-desc"></p>
+        <div class="detail-tags" id="detail-tags"></div>
+        <div class="detail-stats">
+          <span>📚 <span id="detail-lessons-count"></span> lessons</span>
+          <span>⏱️ <span id="detail-duration"></span></span>
+          <span>📊 <span id="detail-level"></span></span>
+          <span>👥 <span id="detail-students"></span></span>
+        </div>
+      </div>
+
+      <!-- Enroll card -->
+      <div class="enroll-card">
+        <div class="enroll-cover" id="detail-thumb"></div>
+        <div class="enroll-price">Free</div>
+        <div class="enroll-sub">Full access · Self-paced</div>
+        <ul class="enroll-features">
+          <li>All lessons included</li>
+          <li>Quiz for every lesson</li>
+          <li>Progress tracking</li>
+          <li>Certificate on completion</li>
+          <li>Mobile-friendly</li>
+        </ul>
+        <button class="btn btn-primary" id="enroll-btn" style="width:100%;justify-content:center">
+          Enroll Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson list -->
+  <div class="container section-wrap" style="padding-top:32px">
+    <div class="detail-inner">
+      <div>
+        <div class="lesson-section-title">Course Lessons</div>
+        <div id="detail-lesson-list"></div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: LESSON VIEW
+═══════════════════════════════════════ -->
+<div class="page" id="page-lesson">
+  <div class="lesson-page-wrap">
+    <!-- Header -->
+    <div class="lesson-header">
+      <div class="lesson-back" id="lesson-back">← Back to course</div>
+      <div class="lesson-page-title" id="lesson-page-title"></div>
+    </div>
+
+    <!-- Video player -->
+    <div class="lesson-video">
+      <div class="lesson-video-bg"></div>
+      <button class="play-btn" id="play-btn">▶</button>
+      <div class="video-hud" id="video-hud">
+        <div class="video-hud-label">Lesson playing… 🎬</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="video-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body: content + sidebar -->
+    <div class="lesson-body">
+      <div class="lesson-text" id="lesson-content"></div>
+
+      <div class="lesson-sidebar">
+        <!-- Complete card -->
+        <div class="complete-card">
+          <div class="complete-title">Lesson Progress</div>
+          <div class="complete-sub">Mark as complete when you've finished watching and reading.</div>
+          <button class="btn btn-success complete-btn" id="mark-complete-btn">Mark as Complete ✓</button>
+          <div class="progress-wrap" style="margin-top:16px">
+            <div class="progress-label">
+              <span style="font-size:12px;color:var(--text3)">Course progress</span>
+              <span style="font-size:12px;color:var(--text3)" id="course-progress-pct">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="course-progress-bar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lesson navigator -->
+        <div class="lessons-nav-card">
+          <div class="lessons-nav-title">All Lessons</div>
+          <div id="sidebar-lessons"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom nav -->
+    <div class="lesson-nav">
+      <button class="btn btn-outline" id="prev-btn">← Previous</button>
+      <button class="btn btn-primary" id="next-btn">Next →</button>
+      <div class="spacer"></div>
+      <button class="btn btn-outline btn-sm" id="open-quiz-btn">Take Quiz 📝</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: QUIZ
+═══════════════════════════════════════ -->
+<div class="page" id="page-quiz">
+  <div class="quiz-wrap">
+
+    <!-- Active quiz -->
+    <div id="quiz-active">
+      <div class="quiz-header">
+        <div class="quiz-counter" id="quiz-counter"></div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-prog-bar">
+          <div class="quiz-prog-fill" id="quiz-prog-fill"></div>
+        </div>
+      </div>
+
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-feedback" id="quiz-feedback" style="display:none"></div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+        <button class="btn btn-outline" id="quiz-next-btn" style="display:none">Next →</button>
+      </div>
+    </div>
+
+    <!-- Results screen -->
+    <div id="quiz-result" style="display:none">
+      <div class="quiz-result">
+        <div class="result-emoji" id="result-emoji"></div>
+        <div class="result-score" id="result-score"></div>
+        <div class="result-label" id="result-label"></div>
+        <div class="result-stats">
+          <div class="result-stat">
+            <div class="result-stat-num" id="result-correct" style="color:var(--success)"></div>
+            <div class="result-stat-sub">Correct</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-num" id="result-wrong" style="color:var(--danger)"></div>
+            <div class="result-stat-sub">Wrong</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-num" id="result-total"></div>
+            <div class="result-stat-sub">Total</div>
+          </div>
+        </div>
+        <div class="result-btns">
+          <button class="btn btn-primary"  id="quiz-retake-btn">Retake Quiz</button>
+          <button class="btn btn-outline"  id="quiz-back-btn">Back to Lesson</button>
+          <button class="btn btn-outline"  id="quiz-dash-btn">Dashboard</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: DASHBOARD
+═══════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <div class="dash-wrap" id="dash-content">
+    <!-- Rendered by dashboard.js -->
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS  (order matters)
+═══════════════════════════════════════ -->
+<script src="js/storage.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/lesson.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/home.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Wire up hero buttons after DOM -->
+<script>
+  document.getElementById('hero-browse-btn').addEventListener('click', () => {
+    Router.go('courses', document.getElementById('nav-courses'));
+  });
+  document.getElementById('hero-dash-btn').addEventListener('click', () => {
+    Router.go('dashboard', document.getElementById('nav-dashboard'));
+  });
+  document.getElementById('nav-home-logo').addEventListener('click', () => {
+    Router.go('home', document.getElementById('nav-home'));
+  });
+</script>
+
+</body>
+</html>

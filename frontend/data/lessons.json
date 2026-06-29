@@ -1,0 +1,182 @@
+{
+  "101": {
+    "title": "Variables & Data Types",
+    "duration": "12 min",
+    "quiz": "js_q1",
+    "content": "<h3>Introduction to Variables</h3><p>In JavaScript, variables are containers for storing data values. JavaScript uses <code>let</code>, <code>const</code>, and <code>var</code> keywords to declare variables.</p><p>Use <code>const</code> when you know the value won't change, and <code>let</code> when it might. Avoid <code>var</code> in modern JavaScript due to scoping issues.</p><h3>Data Types</h3><p>JavaScript has 7 primitive data types: <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Undefined</code>, <code>Null</code>, <code>Symbol</code>, and <code>BigInt</code>. Objects are the only non-primitive type.</p>"
+  },
+  "102": {
+    "title": "Functions & Scope",
+    "duration": "15 min",
+    "quiz": "js_q2",
+    "content": "<h3>Defining Functions</h3><p>Functions are reusable blocks of code. In JavaScript you can define them as function declarations, function expressions, or arrow functions.</p><p>Arrow functions (<code>const fn = () => {}</code>) are concise and don't bind their own <code>this</code>, making them ideal for callbacks.</p><h3>Scope</h3><p>Scope determines where variables are accessible. Variables declared with <code>let</code> or <code>const</code> are block-scoped. Understanding global, function, and block scope helps you avoid subtle bugs.</p>"
+  },
+  "103": {
+    "title": "DOM Manipulation",
+    "duration": "18 min",
+    "quiz": "js_q1",
+    "content": "<h3>The Document Object Model</h3><p>The DOM is a programming interface for HTML documents. It represents the page so programs can change structure, style, and content dynamically.</p><p>Use <code>document.querySelector()</code> to select elements and <code>addEventListener()</code> to respond to user interactions like clicks and key presses.</p>"
+  },
+  "104": {
+    "title": "Arrays & Objects",
+    "duration": "14 min",
+    "quiz": "js_q2",
+    "content": "<h3>Working with Arrays</h3><p>Arrays store ordered collections of data. Master methods like <code>map()</code>, <code>filter()</code>, <code>reduce()</code>, and <code>forEach()</code> to manipulate data declaratively without loops.</p><h3>Objects</h3><p>Objects store key-value pairs. Destructuring, spread operators, and object methods let you write cleaner, more expressive code.</p>"
+  },
+  "105": {
+    "title": "Async JavaScript",
+    "duration": "20 min",
+    "quiz": "js_q1",
+    "content": "<h3>Asynchronous Programming</h3><p>JavaScript is single-threaded but handles async operations via callbacks, Promises, and <code>async/await</code>. Understanding the event loop is essential for writing non-blocking code.</p><p><code>async/await</code> syntax makes asynchronous code read like synchronous code, drastically improving readability and error handling.</p>"
+  },
+  "106": {
+    "title": "ES6+ Features",
+    "duration": "16 min",
+    "quiz": "js_q2",
+    "content": "<h3>Modern JavaScript</h3><p>ES6 introduced template literals, destructuring, default parameters, rest/spread operators, modules, and <code>class</code> syntax. These features are now standard in all modern JavaScript projects.</p>"
+  },
+  "201": {
+    "title": "Flexbox Fundamentals",
+    "duration": "14 min",
+    "quiz": "css_q1",
+    "content": "<h3>CSS Flexbox</h3><p>Flexbox is a one-dimensional layout method for laying out items in rows or columns. It distributes space along the main axis and aligns items on the cross axis.</p><p>Key properties: <code>display: flex</code>, <code>justify-content</code>, <code>align-items</code>, <code>flex-direction</code>, <code>flex-wrap</code>.</p>"
+  },
+  "202": {
+    "title": "CSS Grid Deep Dive",
+    "duration": "18 min",
+    "quiz": "css_q2",
+    "content": "<h3>CSS Grid Layout</h3><p>Grid is a two-dimensional layout system. Define rows and columns with <code>grid-template-columns</code> and <code>grid-template-rows</code>. Place items with <code>grid-column</code> and <code>grid-row</code>.</p><p>The <code>fr</code> unit distributes available space proportionally — it's the core of responsive grid design.</p>"
+  },
+  "203": {
+    "title": "Responsive Breakpoints",
+    "duration": "12 min",
+    "quiz": "css_q1",
+    "content": "<h3>Media Queries</h3><p>Media queries let you apply CSS rules based on device characteristics like screen width. Mobile-first approach: start with mobile styles, then add complexity for larger screens using <code>min-width</code> breakpoints.</p>"
+  },
+  "204": {
+    "title": "Advanced Layout Patterns",
+    "duration": "16 min",
+    "quiz": "css_q2",
+    "content": "<h3>Real-world Layouts</h3><p>Combine Grid and Flexbox for complex layouts: use Grid for page structure and Flexbox for component alignment. Holy grail layout, card grids, sidebar layouts — all become simple with these two tools.</p>"
+  },
+  "301": {
+    "title": "Python Basics",
+    "duration": "15 min",
+    "quiz": "python_q1",
+    "content": "<h3>Python Fundamentals</h3><p>Python's clean syntax makes it ideal for data work. Core concepts: variables, loops, conditionals, functions, and list comprehensions.</p>"
+  },
+  "302": {
+    "title": "Pandas DataFrames",
+    "duration": "20 min",
+    "quiz": "python_q2",
+    "content": "<h3>Working with Pandas</h3><p>Pandas provides <code>DataFrame</code> and <code>Series</code> structures for tabular data. Load CSVs with <code>pd.read_csv()</code>, then filter, group, merge, and transform data with expressive, readable syntax.</p>"
+  },
+  "303": {
+    "title": "Data Visualization",
+    "duration": "18 min",
+    "quiz": "python_q1",
+    "content": "<h3>Matplotlib & Seaborn</h3><p>Visualize data with line charts, bar charts, scatter plots, and heatmaps. Matplotlib is foundational; Seaborn provides high-level, beautiful statistical visualizations built on top of it.</p>"
+  },
+  "304": {
+    "title": "NumPy Arrays",
+    "duration": "14 min",
+    "quiz": "python_q2",
+    "content": "<h3>Numerical Computing</h3><p>NumPy's <code>ndarray</code> enables fast vectorized operations on large datasets without Python loops. Master slicing, broadcasting, and linear algebra basics.</p>"
+  },
+  "305": {
+    "title": "Intro to Machine Learning",
+    "duration": "22 min",
+    "quiz": "python_q1",
+    "content": "<h3>ML Concepts</h3><p>Supervised learning uses labeled data to train models. Scikit-learn provides clean APIs: <code>fit()</code>, <code>predict()</code>, <code>score()</code>. Start with linear regression and decision trees before moving to ensemble methods.</p>"
+  },
+  "401": {
+    "title": "React Basics & JSX",
+    "duration": "16 min",
+    "quiz": "react_q1",
+    "content": "<h3>What is React?</h3><p>React is a JavaScript library for building user interfaces using a component-based architecture. JSX lets you write HTML-like syntax in JavaScript files, which Babel compiles to <code>React.createElement</code> calls at build time.</p>"
+  },
+  "402": {
+    "title": "useState & useEffect",
+    "duration": "18 min",
+    "quiz": "react_q2",
+    "content": "<h3>React Hooks</h3><p><code>useState</code> lets you add state to function components. <code>useEffect</code> handles side effects like data fetching and subscriptions. Together they replace class component lifecycle methods completely.</p>"
+  },
+  "403": {
+    "title": "Component Patterns",
+    "duration": "20 min",
+    "quiz": "react_q1",
+    "content": "<h3>Reusable Components</h3><p>Props pass data down; callback functions pass events up. Controlled components bind form values to state. Lifting state up, compound components, and render props are patterns every React developer must know.</p>"
+  },
+  "404": {
+    "title": "React Router",
+    "duration": "14 min",
+    "quiz": "react_q2",
+    "content": "<h3>Client-side Routing</h3><p>React Router enables navigation without full page reloads. Define routes with <code>&lt;Route&gt;</code>, navigate with <code>&lt;Link&gt;</code>, and read URL parameters with <code>useParams()</code>.</p>"
+  },
+  "405": {
+    "title": "Context API",
+    "duration": "15 min",
+    "quiz": "react_q1",
+    "content": "<h3>Global State</h3><p>Context avoids prop drilling by making state available anywhere in the component tree. Create a context, wrap your app in a Provider, and consume it with <code>useContext()</code>.</p>"
+  },
+  "406": {
+    "title": "Performance & Optimization",
+    "duration": "19 min",
+    "quiz": "react_q2",
+    "content": "<h3>React Performance</h3><p><code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code> prevent unnecessary re-renders. Code splitting with <code>React.lazy</code> and <code>Suspense</code> reduces bundle size for faster initial loads.</p>"
+  },
+  "501": {
+    "title": "Docker Containers",
+    "duration": "18 min",
+    "quiz": "devops_q1",
+    "content": "<h3>Containerization</h3><p>Containers package code and its dependencies together, ensuring consistent environments across development and production. A Dockerfile defines the environment; <code>docker build</code> creates the image; <code>docker run</code> starts a container.</p>"
+  },
+  "502": {
+    "title": "Docker Compose",
+    "duration": "15 min",
+    "quiz": "devops_q2",
+    "content": "<h3>Multi-container Apps</h3><p>Docker Compose orchestrates multiple containers with a YAML file. Define services, networks, and volumes. One <code>docker-compose up</code> command starts your entire application stack.</p>"
+  },
+  "503": {
+    "title": "Kubernetes Overview",
+    "duration": "20 min",
+    "quiz": "devops_q1",
+    "content": "<h3>K8s Architecture</h3><p>Kubernetes orchestrates container deployment, scaling, and management. Core concepts: pods, deployments, services, and namespaces. The control plane manages worker nodes automatically.</p>"
+  },
+  "504": {
+    "title": "Deployments & Services",
+    "duration": "16 min",
+    "quiz": "devops_q2",
+    "content": "<h3>Deploying with K8s</h3><p>A Deployment manages a ReplicaSet to ensure the desired number of pods are running. A Service exposes pods to network traffic — ClusterIP, NodePort, and LoadBalancer serve different use cases.</p>"
+  },
+  "601": {
+    "title": "Design Principles",
+    "duration": "14 min",
+    "quiz": "design_q1",
+    "content": "<h3>Core Design Principles</h3><p>Proximity, alignment, repetition, and contrast (PARC) form the foundation of visual design. Understanding these principles helps you evaluate and improve any interface systematically.</p>"
+  },
+  "602": {
+    "title": "Color Theory",
+    "duration": "12 min",
+    "quiz": "design_q2",
+    "content": "<h3>Using Color Effectively</h3><p>Color conveys meaning, creates hierarchy, and evokes emotion. Learn about hue, saturation, and lightness. Master complementary, analogous, and triadic color schemes for balanced, accessible palettes.</p>"
+  },
+  "603": {
+    "title": "Typography",
+    "duration": "13 min",
+    "quiz": "design_q1",
+    "content": "<h3>Type as Design Material</h3><p>Typography is more than font choice. Line height, letter spacing, font weight, and scale all affect readability and hierarchy. Pair a display face with a workhorse body face for strong contrast.</p>"
+  },
+  "604": {
+    "title": "Wireframing",
+    "duration": "16 min",
+    "quiz": "design_q2",
+    "content": "<h3>From Idea to Structure</h3><p>Wireframes communicate layout and functionality without visual design decisions. Low-fidelity wireframes iterate fast; high-fidelity ones communicate detail to engineers and stakeholders.</p>"
+  },
+  "605": {
+    "title": "Prototyping in Figma",
+    "duration": "18 min",
+    "quiz": "design_q1",
+    "content": "<h3>Interactive Prototypes</h3><p>Figma's prototyping feature links frames with transitions to simulate real app interactions. User testing with prototypes catches usability issues before a single line of code is written.</p>"
+  }
+}
